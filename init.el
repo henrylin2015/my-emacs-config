@@ -62,6 +62,10 @@
 ;;缩进
 ;;(electric-indent-mode t)
 
+;;load file
+(global-auto-revert-mode t)
+
+
 ;;setting language utf-8
 (set-language-environment "utf-8")
 ;;选中删除
