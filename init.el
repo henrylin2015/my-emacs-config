@@ -29,6 +29,8 @@
 			 nodejs-repl
 			 ;;exec-path-from-shell
 			 exec-path-from-shell
+			 ;;popwin
+			 popwin
 			 
 	       ) "Default packages")
 
@@ -131,6 +133,10 @@
 (global-set-key (kbd "C-h C-f") 'find-function)
 (global-set-key (kbd "C-h C-v") 'find-variable)
 (global-set-key (kbd "C-h C-k") 'find-function-on-key)
+
+;;popwin
+(require 'popwin)
+(popwin-mode 1)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
