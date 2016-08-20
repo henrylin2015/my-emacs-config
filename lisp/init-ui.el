@@ -18,4 +18,8 @@
 ;;选中显示当前的行
 (global-hl-line-mode t)
 
+;;加载主题
+(load-theme 'monokai t)
+
+
 (provide 'init-ui)
