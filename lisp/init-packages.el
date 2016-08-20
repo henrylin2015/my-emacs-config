@@ -50,7 +50,7 @@
 
 ;;配置成对出现的括号，引号等,如(),“”....
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
-(require 'smartparens-config)
+;;(require 'smartparens-config)
 ;;(add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
 ;;all of smartparens-mode
 (smartparens-global-mode t)
