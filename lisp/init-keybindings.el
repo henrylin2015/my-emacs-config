@@ -12,4 +12,9 @@
 ;;hippie auto company Hippie 补全
 (global-set-key (kbd "s-/") 'hippie-expand)
 
+;;expand-region
+(global-set-key (kbd "C-=") 'er/expand-region)
+;;iedit
+(global-set-key (kbd "C-;") 'iedit-mode)
+
 (provide 'init-keybindings)
