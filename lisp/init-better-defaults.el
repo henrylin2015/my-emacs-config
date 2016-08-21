@@ -62,5 +62,8 @@
 	     (ignore-errors (backward-up-list))
 	     (funcall fn)))))
 
+;;set default language UTF-8
+(set-language-environment "UTF-8")
+
 
 (provide 'init-better-defaults)

@@ -32,6 +32,8 @@
 			 expand-region
 			 ;;iedit
 			 iedit
+			 ;;org-pomodoro
+			 org-pomodoro
 			 ) "Default packages")
 
 (setq package-selected-packages henry/packages)
