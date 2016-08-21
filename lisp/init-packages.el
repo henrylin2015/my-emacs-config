@@ -34,6 +34,10 @@
 			 iedit
 			 ;;org-pomodoro
 			 org-pomodoro
+			 ;;;文件的搜索插件
+			 ;;helm-ag
+			 ;;install flycheck
+			 ;;flycheck
 			 ) "Default packages")
 
 (setq package-selected-packages henry/packages)
@@ -143,5 +147,8 @@
 ;;popwin
 (require 'popwin)
 (popwin-mode 1)
+
+;;config flycheck
+;;(global-flycheck-mode t)
 
 (provide 'init-packages)
