@@ -60,7 +60,7 @@
 			 elpy
 			 ;;c/c++
 			 company-c-headers
-			 			 ;;php flymake
+			 ;;php flymake
 			 flymake-php
 			 ;;python mode
 			 elpy
@@ -187,21 +187,21 @@
 (add-hook 'prog-mode-hook #'yas-minor-mode)
 
 ;;Evil 模式
-;;(evil-mode 1)
-;;(setcdr evil-insert-state-map nil)
-;;(define-key evil-insert-state-map [escape] 'evil-normal-state)
+(evil-mode 1)
+(setcdr evil-insert-state-map nil)
+(define-key evil-insert-state-map [escape] 'evil-normal-state)
 
 ;;evil-leader
-;;(global-evil-leader-mode)
+(global-evil-leader-mode)
 
 ;;Window-numbering
-;;(window-numbering-mode 1)
+(window-numbering-mode 1)
 ;;Evil-nerd-commenter
-;;(require 'evil-surround)
-;;(global-evil-surround-mode)
-;;(evilnc-default-hotkeys)
+(require 'evil-surround)
+(global-evil-surround-mode)
+(evilnc-default-hotkeys)
 ;;which-key
-;;(which-key-mode 1)
+(which-key-mode 1)
 
 ;;config for php mode flymake 
 (eval-after-load 'php-mode
