@@ -9,6 +9,7 @@
  '(custom-safe-themes
    (quote
     ("557c283f4f9d461f897b8cac5329f1f39fac785aa684b78949ff329c33f947ec" default)))
+ '(evil-want-C-u-scroll t)
  '(popwin:popup-window-position (quote right))
  '(popwin:popup-window-width 80))
 (custom-set-faces
