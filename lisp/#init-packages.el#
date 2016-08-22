@@ -66,7 +66,28 @@
 			 elpy
 			 ;;c/c++
 			 company-c-headers
-			 auto-complete-c-headers
+			 ) "Default packages")
+
+(setq package-selected-packages henry/packages)
+
+(defun henry/packages-installed-p ()
+    (loop for pkg in henry/packages
+	  when (not (package-installed-p pkg)) do (return nil)
+	  finally (return t)))
+
+(unless (henry/packages-installed-p)
+    (message "%s" "Refreshing package database...")
+    (package-refresh-contents)
+    (dolist (pkg henry/packages)
+      (when (not (package-installed-p pkg))
+	(package-install pkg))))
+
+;; Find Executable Path on OS X
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
+
+;;开启自动补全功能
+(global-
 			 ) "Default packages")
 
 (setq package-selected-packages henry/packages)
@@ -176,7 +197,7 @@
 (add-hook 'python-mode-hook 'flycheck-mode)
 ;;c/c++
 (add-hook 'c++-mode-hook 'flycheck-mode)
-(add-hook 'c++-mode-hook #'company-mode)
+
 ;;yasnippet
 (require 'yasnippet)
 (yas-global-mode 1)
@@ -184,21 +205,21 @@
 (add-hook 'prog-mode-hook #'yas-minor-mode)
 
 ;;Evil 模式
-;;(evil-mode 1)
-;;(setcdr evil-insert-state-map nil)
-;;(define-key evil-insert-state-map [escape] 'evil-normal-state)
+(evil-mode 1)
+(setcdr evil-insert-state-map nil)
+(define-key evil-insert-state-map [escape] 'evil-normal-state)
 
 ;;evil-leader
-;;(global-evil-leader-mode)
+(global-evil-leader-mode)
 
 ;;Window-numbering
-;;(window-numbering-mode 1)
+(window-numbering-mode 1)
 ;;Evil-nerd-commenter
-;;(require 'evil-surround)
-;;(global-evil-surround-mode)
-;;(evilnc-default-hotkeys)
+(require 'evil-surround)
+(global-evil-surround-mode)
+(evilnc-default-hotkeys)
 ;;which-key
-;;(which-key-mode 1)
+(which-key-mode 1)
 
 ;;config for php mode flymake 
 (eval-after-load 'php-mode
@@ -215,14 +236,5 @@
     (ede-system-include-path ede-object)))
 
 (setq company-c-headers-path-system 'ede-object-system-include-path)
-
-;;auto-company-c-headers
-(defun my:ac-c-headers-init ()
-  (require 'auto-complete-c-headers)
-  (add-to-list 'ac-sources 'ac-source-c-headers))
-
-(add-hook 'c++-mode-hook 'my:ac-c-headers-init)
-(add-hook 'c-mode-hook 'my:ac-c-headers-init)
-
 
 (provide 'init-packages)
