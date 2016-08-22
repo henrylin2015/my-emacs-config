@@ -56,6 +56,8 @@
 			 php-mode
 			 ;;php flymake
 			 flymake-php
+			 ;;python mode
+			 elpy
 			 ) "Default packages")
 
 (setq package-selected-packages henry/packages)
@@ -159,6 +161,10 @@
 
 ;;语法检查，这个设置只是在js2-mode下语法才会检查的
 (add-hook 'js2-mode-hook 'flycheck-mode)
+;;php-mode
+(add-hook 'php-mode-hook 'flycheck-mode)
+;;python-mode
+(add-hook 'python-mode-hook 'flycheck-mode)
 
 ;;yasnippet
 (require 'yasnippet)
@@ -187,5 +193,9 @@
 (eval-after-load 'php-mode
   '(require 'php-ext))
 (add-hook 'php-mode-hook 'flymake-php-load)
+
+;;python config
+(elpy-enable)
+
 
 (provide 'init-packages)
