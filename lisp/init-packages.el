@@ -50,6 +50,10 @@
 			 evil-surround
 			 evil-nerd-commenter
 			 which-key
+			 ;;php mode
+			 php-mode
+			 ;;php flymake
+			 flymake-php
 			 ) "Default packages")
 
 (setq package-selected-packages henry/packages)
@@ -93,7 +97,9 @@
 (setq auto-mode-alist
       (append
        '(("\\.js\\'" . js2-mode)
-	 ("\\.html\\'" . web-mode))
+	 ("\\.html\\'" . web-mode)
+	 ("\\.php$" . php-mode)
+	 )
        auto-mode-alist))
 
 ;;;start web-mode
@@ -174,5 +180,10 @@
 (evilnc-default-hotkeys)
 ;;which-key
 (which-key-mode 1)
+
+;;config for php mode flymake 
+(eval-after-load 'php-mode
+  '(require 'php-ext))
+(add-hook 'php-mode-hook 'flymake-php-load)
 
 (provide 'init-packages)
