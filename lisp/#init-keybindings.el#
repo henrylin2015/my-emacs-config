@@ -66,6 +66,6 @@
 (define-key evil-visual-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
 
 ;;helm-ag
-(global-set-key (kbd "C-c C-p s") 'helm-do-ag-project-root)
+(global-set-key (kbd "
 
 (provide 'init-keybindings)

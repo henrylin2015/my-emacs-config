@@ -2,9 +2,11 @@
 (global-auto-revert-mode t)
 
 
-
 ;;选中删除
 (delete-selection-mode t)
+
+;disable auto save
+(setq auto-save-default t)
 
 (require 'recentf)
 (recentf-mode 1)

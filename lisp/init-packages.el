@@ -35,9 +35,21 @@
 			 ;;org-pomodoro
 			 org-pomodoro
 			 ;;;文件的搜索插件
-			 ;;helm-ag
+			 helm-ag
 			 ;;install flycheck
-			 ;;flycheck
+			 flycheck
+			 ;;autoyasnippet
+			 auto-yasnippet
+			 ;;Evil 模式
+			 evil
+			 ;;evil-leader
+			 evil-leader
+			 ;;window-numbering
+			 window-numbering
+			 ;;Evil-Surround
+			 evil-surround
+			 evil-nerd-commenter
+			 which-key
 			 ) "Default packages")
 
 (setq package-selected-packages henry/packages)
@@ -75,16 +87,6 @@
 ;;config swiper & counsel 
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
-(global-set-key "\C-s" 'swiper)
-(global-set-key (kbd "C-c C-r") 'ivy-resume)
-(global-set-key (kbd "<f6>") 'ivy-resume)
-(global-set-key (kbd "M-x") 'counsel-M-x)
-(global-set-key (kbd "C-x C-f") 'counsel-find-file)
-(global-set-key (kbd "<f1> f") 'counsel-describe-function)
-(global-set-key (kbd "<f1> v") 'counsel-describe-variable)
-
-;; 这个快捷键绑定可以用之后的插件 counsel 代替
-(global-set-key (kbd "C-x C-r") 'recentf-open-files)
 
 
 ;;config js2-mode for files
@@ -119,14 +121,11 @@
       (setq css-indent-offset (if (= css-indent-offset 2) 4 2)))
 
   (setq indent-tabs-mode nil))
-
-(global-set-key (kbd "C-c t i") 'my-toggle-web-indent)
 ;;;end web-mode
 
 
 ;;config for js2-refactor 在安装完成后，添加一个钩子（Hook）
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
-(js2r-add-keybindings-with-prefix "C-c C-m")
 ;;下面的代码用于配置 Occur Mode 使其默认搜索当前被选中的或者在光标下的字符串：
 (defun occur-dwim ()
   "Call `occur' with a sane default."
@@ -140,7 +139,6 @@
 	      (regexp-quote sym))))
 	regexp-history)
   (call-interactively 'occur))
-(global-set-key (kbd "M-s o") 'occur-dwim)
 
 
 
@@ -150,5 +148,31 @@
 
 ;;config flycheck
 ;;(global-flycheck-mode t)
+
+;;语法检查，这个设置只是在js2-mode下语法才会检查的
+(add-hook 'js2-mode-hook 'flycheck-mode)
+
+;;yasnippet
+(require 'yasnippet)
+(yas-global-mode 1)
+(yas-reload-all)
+(add-hook 'prog-mode-hook #'yas-minor-mode)
+
+;;Evil 模式
+(evil-mode 1)
+(setcdr evil-insert-state-map nil)
+(define-key evil-insert-state-map [escape] 'evil-normal-state)
+
+;;evil-leader
+(global-evil-leader-mode)
+
+;;Window-numbering
+(window-numbering-mode 1)
+;;Evil-nerd-commenter
+(require 'evil-surround)
+(global-evil-surround-mode)
+(evilnc-default-hotkeys)
+;;which-key
+(which-key-mode 1)
 
 (provide 'init-packages)
