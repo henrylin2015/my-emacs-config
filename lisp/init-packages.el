@@ -67,6 +67,9 @@
 			 ;;c/c++
 			 company-c-headers
 			 auto-complete-c-headers
+			 ;;git 显示修改文件状态
+			 ;;git-gutter
+			 git-gutter-fringe
 			 ) "Default packages")
 
 (setq package-selected-packages henry/packages)
@@ -224,5 +227,14 @@
 (add-hook 'c++-mode-hook 'my:ac-c-headers-init)
 (add-hook 'c-mode-hook 'my:ac-c-headers-init)
 
+;;git 显示修改文件状态
+(global-git-gutter-mode 1)
+(require 'git-gutter-fringe)
+(set-face-foreground 'git-gutter-fr:modified "purple")
+(set-face-foreground 'git-gutter-fr:added    "green")
+(set-face-foreground 'git-gutter-fr:deleted  "red")
+(setq-default left-fringe-width  20)
+(setq-default right-fringe-width 20)
+(setq git-gutter-fr:side 'right-fringe)
 
 (provide 'init-packages)
