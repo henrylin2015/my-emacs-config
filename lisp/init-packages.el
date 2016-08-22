@@ -10,6 +10,8 @@
 			 company
 			 ;;theme
 			 monokai-theme
+			 ;; material-theme
+			 material-theme
 			 ;;删除多余的空格插件
 			 hungry-delete
 			 ;;swiper & counsel

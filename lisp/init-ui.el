@@ -19,7 +19,8 @@
 (global-hl-line-mode t)
 
 ;;加载主题
-(load-theme 'monokai t)
-
+;;(load-theme 'monokai t)
+;;加载主题material
+(load-theme 'material t)
 
 (provide 'init-ui)
