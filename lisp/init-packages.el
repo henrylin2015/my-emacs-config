@@ -1,90 +1,95 @@
 ;; cl - Common Lisp Extension
-(require 'cl)
+;; (require 'cl)
 
-(when (>= emacs-major-version 24)
-    (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t))
+;; (when (>= emacs-major-version 24)
+;;   ;; (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+;;   (setq package-archives '(("gnu"   . "http://elpa.zilongshanren.com/gnu/")
+;;                          ("melpa" . "http://elpa.zilongshanren.com/melpa/")))
+;;   )
 
-;; Add Packages
-(defvar henry/packages '(
-	       ;; --- Auto-completion ---
-			 company
-			 ;;theme
-			 monokai-theme
-			 ;; material-theme
-			 material-theme
-			 ;;删除多余的空格插件
-			 hungry-delete
-			 ;;swiper & counsel
-			 swiper
-			 counsel
-			 ;;() "" ''....
-			 smartparens
-			 ;;js2-mode & nodejs
-			 js2-mode
-			 nodejs-repl
-			 ;;exec-path-from-shell
-			 exec-path-from-shell
-			 ;;popwin
-			 popwin
-			 ;;web-mode
-			 web-mode
-			 ;;js2-refactor
-			 js2-refactor
-			 ;;expand-region
-			 expand-region
-			 ;;iedit
-			 iedit
-			 ;;org-pomodoro
-			 org-pomodoro
-			 ;;;文件的搜索插件
-			 helm-ag
-			 ;;install flycheck
-			 flycheck
-			 ;;autoyasnippet
-			 auto-yasnippet
-			 ;;Evil 模式
-			 evil
-			 ;;evil-leader
-			 evil-leader
-			 ;;window-numbering
-			 window-numbering
-			 ;;Evil-Surround
-			 evil-surround
-			 evil-nerd-commenter
-			 which-key
-			 ;;php mode
-			 php-mode
-			 ;;php flymake
-			 flymake-php
-			 ;;python mode
-			 elpy
-			 ;;c/c++
-			 company-c-headers
-			 ;;php flymake
-			 flymake-php
-			 ;;python mode
-			 elpy
-			 ;;c/c++
-			 company-c-headers
-			 auto-complete-c-headers
-			 ;;git 显示修改文件状态
-			 ;;git-gutter
-			 git-gutter-fringe
-			 ) "Default packages")
+;; ;; Add Packages
+;; (defvar henry/packages '(
+;; 	       ;; --- Auto-completion ---
+;; 			 company
+;; 			 ;;theme
+;; 			 monokai-theme
+;; 			 ;; material-theme
+;; 			 material-theme
+;; 			 ;;删除多余的空格插件
+;; 			 hungry-delete
+;; 			 ;;swiper & counsel
+;; 			 swiper
+;; 			 counsel
+;; 			 ;;() "" ''....
+;; 			 smartparens
+;; 			 ;;js2-mode & nodejs
+;; 			 js2-mode
+;; 			 nodejs-repl
+;; 			 ;;exec-path-from-shell
+;; 			 exec-path-from-shell
+;; 			 ;;popwin
+;; 			 popwin
+;; 			 ;;web-mode
+;; 			 web-mode
+;; 			 ;;js2-refactor
+;; 			 js2-refactor
+;; 			 ;;expand-region
+;; 			 expand-region
+;; 			 ;;iedit
+;; 			 iedit
+;; 			 ;;org-pomodoro
+;; 			 org-pomodoro
+;; 			 ;;;文件的搜索插件
+;; 			 helm-ag
+;; 			 ;;install flycheck
+;; 			 flycheck
+;; 			 ;;autoyasnippet
+;; 			 auto-yasnippet
+;; 			 ;;Evil 模式
+;; 			 evil
+;; 			 ;;evil-leader
+;; 			 evil-leader
+;; 			 ;;window-numbering
+;; 			 window-numbering
+;; 			 ;;Evil-Surround
+;; 			 evil-surround
+;; 			 evil-nerd-commenter
+;; 			 which-key
+;; 			 ;;php mode
+;; 			 php-mode
+;; 			 ;;php flymake
+;; 			 flymake-php
+;; 			 ;;python mode
+;; 			 elpy
+;; 			 ;;c/c++
+;; 			 company-c-headers
+;; 			 ;;php flymake
+;; 			 flymake-php
+;; 			 ;;python mode
+;; 			 elpy
+;; 			 ;;c/c++
+;; 			 company-c-headers
+;; 			 auto-complete-c-headers
+;; 			 ;;git 显示修改文件状态
+;; 			 ;;git-gutter
+;; 			 ;;cask pallet
+;; 			 pallet
+;; 			 git-gutter-fringe
+;; 			 ) "Default packages")
 
-(setq package-selected-packages henry/packages)
+;; (setq package-selected-packages henry/packages)
 
-(defun henry/packages-installed-p ()
-    (loop for pkg in henry/packages
-	  when (not (package-installed-p pkg)) do (return nil)
-	  finally (return t)))
+;; (defun henry/packages-installed-p ()
+;;     (loop for pkg in henry/packages
+;; 	  when (not (package-installed-p pkg)) do (return nil)
+;; 	  finally (return t)))
 
-(unless (henry/packages-installed-p)
-    (message "%s" "Refreshing package database...")
-    (package-refresh-contents)
-    (dolist (pkg henry/packages)
-      (when (not (package-installed-p pkg))
-	(package-install pkg))))
+;; (unless (henry/packages-installed-p)
+;;     (message "%s" "Refreshing package database...")
+;;     (package-refresh-contents)
+;;     (dolist (pkg henry/packages)
+;;       (when (not (package-installed-p pkg))
+;; 	(package-install pkg))))
 
 ;; Find Executable Path on OS X
 (when (memq window-system '(mac ns))
