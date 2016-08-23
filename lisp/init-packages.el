@@ -59,6 +59,10 @@
       (setq css-indent-offset (if (= css-indent-offset 2) 4 2)))
 
   (setq indent-tabs-mode nil))
+;;Highlight current HTML element
+(setq web-mode-enable-current-element-highlight t)
+;;You can also highlight the current column with
+(setq web-mode-enable-current-column-highlight t)
 ;;;end web-mode
 
 
@@ -89,6 +93,8 @@
 
 ;;语法检查，这个设置只是在js2-mode下语法才会检查的
 (add-hook 'js2-mode-hook 'flycheck-mode)
+;;web-mode
+(add-hook 'web-mode-hook 'flycheck-mode)
 ;;php-mode
 (add-hook 'php-mode-hook 'flycheck-mode)
 ;;python-mode
