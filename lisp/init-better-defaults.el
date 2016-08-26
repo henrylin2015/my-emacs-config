@@ -73,5 +73,17 @@
 ;;set default language UTF-8
 (set-language-environment "UTF-8")
 
+;;显示时间
+(display-time-mode t)
+;;时间使用24小时制
+(setq display-time-24hr-format t)
+;;时间显示包括日期和具体时间
+(setq display-time-day-and-date t)
+;时间栏旁边启用邮件设置
+(setq display-time-use-mail-icon t)
+;;时间的变化频率
+(setq display-time-interval 10)
+;;显示时间的格式
+(setq display-time-format "%y年%m月%d日 %a %H:%M")
 
 (provide 'init-better-defaults)
