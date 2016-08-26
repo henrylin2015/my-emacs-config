@@ -74,4 +74,6 @@
 ;;Get docs C-c C-d  ;; elpy-doc
 ;;M-x elpy-set-test-runner
 ;;C-c C-t  ;; runs test/ all tests
+(global-set-key (kbd "C-M-z") 'undo)
+(global-set-key (kbd "C-M-w") 'kill-region)
 (provide 'init-keybindings)
