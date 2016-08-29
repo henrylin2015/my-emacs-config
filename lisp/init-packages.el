@@ -173,5 +173,7 @@
           (lambda ()
             (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
               (ggtags-mode 1))))
+;;c++
+(add-hook 'c++-mode-hook 'ggtags-mode)
 
 (provide 'init-packages)
