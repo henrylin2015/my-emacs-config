@@ -96,7 +96,8 @@
 ;;web-mode
 (add-hook 'web-mode-hook 'flycheck-mode)
 ;;php-mode
-(add-hook 'php-mode-hook 'flycheck-mode)
+;;(add-hook 'php-mode-hook 'flycheck-mode)
+;;(add-hook 'php-mode-hook 'yas-reload-all)
 ;;python-mode
 (add-hook 'python-mode-hook 'flycheck-mode)
 ;;c/c++
@@ -104,9 +105,13 @@
 (add-hook 'c++-mode-hook #'company-mode)
 ;;yasnippet
 (require 'yasnippet)
-(yas-global-mode 1)
+(setq yas/prompt-functions
+   '(yas/dropdown-prompt yas/x-prompt yas/completing-prompt yas/ido-prompt yas/no-prompt))
+(yas/global-mode t)
+(yas/minor-mode-on) ;;以minor mode打开，这样才能配合主mode使用
 (yas-reload-all)
 (add-hook 'prog-mode-hook #'yas-minor-mode)
+(ac-config-default)
 
 ;;Evil 模式
 (evil-mode 1)
@@ -171,7 +176,7 @@
 ;;ggtags config
 (add-hook 'c-mode-common-hook
           (lambda ()
-            (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+            (when (derived-mode-p 'c-mode 'c++-mode 'java-mode 'python-mode)
               (ggtags-mode 1))))
 ;;c++
 (add-hook 'c++-mode-hook 'ggtags-mode)
