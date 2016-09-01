@@ -181,4 +181,24 @@
 ;;c++
 (add-hook 'c++-mode-hook 'ggtags-mode)
 
+;;ycmd
+(require 'ycmd)
+(add-hook 'after-init-hook #'global-ycmd-mode)
+;;;; Specify how to run the server
+(set-variable 'ycmd-server-command '("/usr/local/bin/python3" "/Users/xiaolin/Documents/ycmd/ycmd"))
+
+;;;; Specify a global emacs configuration
+(set-variable 'ycmd-global-config "/Users/xiaolin/Documents/ycmd/examples/.ycm_extra_conf.py")
+
+;;;; Completion framework
+(company-ycmd-setup)
+(add-hook 'after-init-hook #'global-company-mode)  
+
+;;;; Enable flycheck
+(flycheck-ycmd-setup)
+(add-hook 'after-init-hook #'global-flycheck-mode)  
+
+;;;; Set always complete immediately
+(setq company-idle-delay 0)
+
 (provide 'init-packages)
