@@ -185,10 +185,10 @@
 (require 'ycmd)
 (add-hook 'after-init-hook #'global-ycmd-mode)
 ;;;; Specify how to run the server
-(set-variable 'ycmd-server-command '("/usr/local/bin/python3" "/Users/xiaolin/Documents/ycmd/ycmd"))
+(set-variable 'ycmd-server-command '("/usr/local/bin/python3" "/Users/xiaolin/.emacs.d/ycmd/ycmd"))
 
 ;;;; Specify a global emacs configuration
-(set-variable 'ycmd-global-config "/Users/xiaolin/Documents/ycmd/examples/.ycm_extra_conf.py")
+(set-variable 'ycmd-global-config "/Users/xiaolin/.emacs.d/ycmd/examples/.ycm_extra_conf.py")
 
 ;;;; Completion framework
 (company-ycmd-setup)
@@ -218,7 +218,7 @@
 
   ;; OPTIONAL, if `company-ispell-dictionary' is nil, `ispell-complete-word-dict' is used
   ;;  but I prefer hard code the dictionary path. That's more portable.
-  (setq company-ispell-dictionary (file-truename "~/.emacs.d/misc/english-words.txt")))
+  (setq company-ispell-dictionary (file-truename "/Users/xiaolin/.emacs.d/misc/english-words.txt")))
 
 (add-hook 'text-mode-hook 'text-mode-hook-setup)
 
